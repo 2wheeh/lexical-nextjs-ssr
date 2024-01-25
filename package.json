@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@lexical/headless": "^0.13.0",
-    "@lexical/react": "^0.13.0",
+    "@lexical/html": "^0.13.0",
     "@types/jsdom": "^21.1.6",
     "jsdom": "^24.0.0",
     "lexical": "^0.13.0",
