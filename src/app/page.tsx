@@ -8,25 +8,29 @@ function setUpDom() {
   const _window = global.window;
   const _document = global.document;
   const _documentFragment = global.DocumentFragment;
-  const _navigator = global.navigator;
 
-  // @ts-ignore
+  console.log(`typeof document ${typeof document}`); // undefined
+  console.log(`typeof window ${typeof window}`); // undefined
+  console.log(`typeof global.window ${typeof global.window}`); // undefined
+
+  // @ts-expect-error
   global.window = dom.window;
   global.document = dom.window.document;
   global.DocumentFragment = dom.window.DocumentFragment;
-  global.navigator = dom.window.navigator;
+
+  console.log(`typeof document ${typeof document}`); // object
+  console.log(`typeof window ${typeof window}`); // this should be object but still undefined
+  console.log(`typeof global.window ${typeof global.window}`); // object
 
   return () => {
-    // @ts-ignore
     global.window = _window;
     global.document = _document;
     global.DocumentFragment = _documentFragment;
-    global.navigator = _navigator;
   };
 }
 
 async function getHtml() {
-  const html: string = await new Promise((resolve, reject) => {
+  const html: string = await new Promise(resolve => {
     const editor = createHeadlessEditor({
       namespace: 'Editor',
       nodes: [],
