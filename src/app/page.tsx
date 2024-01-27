@@ -7,18 +7,15 @@ function setupDom() {
 
   const _window = global.window;
   const _document = global.document;
-  const _documentFragment = global.DocumentFragment;
 
   console.log(`typeof document ${typeof document}`); // undefined
   console.log(`typeof window ${typeof window}`); // undefined
-  console.log(`typeof global.window ${typeof global.window}`); // undefined
 
   // @ts-expect-error
   // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/51276
   // https://github.com/capricorn86/happy-dom/issues/1227
   global.window = dom.window;
   global.document = dom.window.document;
-  global.DocumentFragment = dom.window.DocumentFragment;
 
   console.log(`typeof document ${typeof document}`); // object
   console.log(`typeof window ${typeof window}`); // this should be object but still undefined
@@ -27,7 +24,6 @@ function setupDom() {
   return () => {
     global.window = _window;
     global.document = _document;
-    global.DocumentFragment = _documentFragment;
   };
 }
 
