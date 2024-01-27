@@ -2,7 +2,7 @@ import { createHeadlessEditor } from '@lexical/headless';
 import { $generateHtmlFromNodes } from '@lexical/html';
 import { JSDOM } from 'jsdom';
 
-function setUpDom() {
+function setupDom() {
   const dom = new JSDOM();
 
   const _window = global.window;
@@ -14,6 +14,8 @@ function setUpDom() {
   console.log(`typeof global.window ${typeof global.window}`); // undefined
 
   // @ts-expect-error
+  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/51276
+  // https://github.com/capricorn86/happy-dom/issues/1227
   global.window = dom.window;
   global.document = dom.window.document;
   global.DocumentFragment = dom.window.DocumentFragment;
@@ -46,9 +48,9 @@ async function getHtml() {
 
     editor.update(() => {
       try {
-        const cleanUpDom = setUpDom();
+        const cleanupDom = setupDom();
         const _html = $generateHtmlFromNodes(editor, null);
-        cleanUpDom();
+        cleanupDom();
         resolve(_html);
       } catch (e) {
         console.log(e);
