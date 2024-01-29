@@ -33,6 +33,6 @@ npm run dev
 
 Open http://localhost:3000 with your browser to see the result.
 
-You can inspect that the rendered HTML from the saved JSON is served in the network tab of your browser's devTools.
+You can inspect that the rendered HTML by the headless editor is served in the network tab of your browser's devTools.
 
 <img width="936" alt="image" src="https://github.com/2wheeh/lexical-nextjs-ssr/assets/40269597/0774ba4d-d7b6-4713-9fb2-6b36816db29f">
