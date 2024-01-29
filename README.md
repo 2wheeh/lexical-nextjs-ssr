@@ -1,6 +1,14 @@
 This is a simple demo running [Lexical](https://github.com/facebook/lexical) on [Next.js](https://github.com/vercel/next.js) to achieve this:
-- SSR for the read mode for SEO.
+- SSR the read mode for SEO.
+    > You can inspect that the rendered HTML by the headless editor is served in the network tab of your browser's devTools.
+    <img width="930" alt="image" src="https://github.com/2wheeh/lexical-nextjs-ssr/assets/40269597/73b448f6-334b-4381-b8bc-15c13b2ef074">
+    
 - Editable on the client side for smooth UX.
+  
+  https://github.com/2wheeh/lexical-nextjs-ssr/assets/40269597/ecf1b914-ae8d-494b-a87e-b2033fb2bf13
+
+
+
 
 ### Demo: [lexical-nextjs-ssr.vercel.app](https://lexical-nextjs-ssr.vercel.app)
 
@@ -31,8 +39,5 @@ Then, run the development server:
 npm run dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open http://localhost:3000 with your browser.
 
-You can inspect that the rendered HTML by the headless editor is served in the network tab of your browser's devTools.
-
-<img width="936" alt="image" src="https://github.com/2wheeh/lexical-nextjs-ssr/assets/40269597/0774ba4d-d7b6-4713-9fb2-6b36816db29f">
