@@ -2,7 +2,7 @@ import { MarkdownShortcutPlugin as LexicalMarkdownShortcutPlugin } from '@lexica
 import { TRANSFORMERS } from '@lexical/markdown';
 
 import { HistoryPlugin as LexicalHistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { useEditorHistoryContext } from './context';
+import { useEditorHistoryContext } from '../context';
 
 import { registerCodeHighlighting } from '@lexical/code';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';

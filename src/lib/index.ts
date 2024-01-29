@@ -1,12 +1,9 @@
 'use server';
 
-import nodes from './nodes';
-import theme from './theme';
-import { createHeadlessEditor } from '@lexical/headless';
 import { $generateHtmlFromNodes } from '@lexical/html';
 import { JSDOM } from 'jsdom';
 import prepopulated from './prepopulated.json';
-import { htmlConfig } from './html-config';
+import createHeadlessEditor from '@/editor/headless';
 
 export async function getSerializedEditorState() {
   return JSON.stringify(prepopulated.editorState);
@@ -40,13 +37,7 @@ function setupDom() {
 
 export async function getHtml(serializedEditorState: string) {
   const html: string = await new Promise(resolve => {
-    const editor = createHeadlessEditor({
-      namespace: 'Editor',
-      nodes: [...nodes],
-      theme: theme,
-      onError: () => {},
-      html: htmlConfig,
-    });
+    const editor = createHeadlessEditor();
 
     editor.setEditorState(editor.parseEditorState(serializedEditorState));
 
