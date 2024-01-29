@@ -1,6 +1,8 @@
-This is a simple demo running [Lexical](https://github.com/facebook/lexical) on [Next.js](https://github.com/vercel/next.js) sever side.
+This is a simple demo running [Lexical](https://github.com/facebook/lexical) on [Next.js](https://github.com/vercel/next.js) to achieve this:
+- SSR for the read mode for SEO.
+- Editable on the client side for smooth UX.
 
-Demo: [lexical-nextjs-ssr.vercel.app](https://lexical-nextjs-ssr.vercel.app)
+### Demo: [lexical-nextjs-ssr.vercel.app](https://lexical-nextjs-ssr.vercel.app)
 
 ## Background
 While implementing a service with Lexical, you must decide how to serialize data for saving in a repository. There could be several ways, but the two main options would be HTML vs JSON ([lexical-docs-serialization](https://lexical.dev/docs/concepts/serialization)). 
