@@ -11,3 +11,7 @@
   line-height: 1.7;
   font-weight: 400;
 }
+
+.change {
+  @apply rounded bg-blue-500 hover:bg-blue-400 py-1 px-2 text-white;
+}

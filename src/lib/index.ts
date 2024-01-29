@@ -8,6 +8,10 @@ import { JSDOM } from 'jsdom';
 import prepopulated from './prepopulated.json';
 import { htmlConfig } from './html-config';
 
+export async function getSerializedEditorState() {
+  return JSON.stringify(prepopulated.editorState);
+}
+
 function setupDom() {
   const dom = new JSDOM();
 
@@ -34,7 +38,7 @@ function setupDom() {
   };
 }
 
-export async function getHtml() {
+export async function getHtml(serializedEditorState: string) {
   const html: string = await new Promise(resolve => {
     const editor = createHeadlessEditor({
       namespace: 'Editor',
@@ -44,7 +48,7 @@ export async function getHtml() {
       html: htmlConfig,
     });
 
-    editor.setEditorState(editor.parseEditorState(JSON.stringify(prepopulated.editorState)));
+    editor.setEditorState(editor.parseEditorState(serializedEditorState));
 
     editor.update(() => {
       try {
