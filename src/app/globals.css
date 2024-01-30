@@ -15,3 +15,7 @@
 .change {
   @apply rounded bg-blue-500 hover:bg-blue-400 py-1 px-2 text-white;
 }
+
+.placeholder {
+  @apply absolute top-9 opacity-50 pointer-events-none;
+}

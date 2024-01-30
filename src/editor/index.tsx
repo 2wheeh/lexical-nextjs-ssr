@@ -20,16 +20,16 @@ export default function Editor({ html, serializedEditorState }: { html: string; 
   }, []);
 
   return (
-    <>
+    <div className='viewer'>
       {!isMount ? (
-        <div className='viewer'>
+        <>
           <button className='change'>convert to edit mode</button>
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
-        </div>
+        </>
       ) : (
         <InnerEditor serializedEditorState={serializedEditorState} />
       )}
-    </>
+    </div>
   );
 }
 
@@ -46,13 +46,13 @@ function InnerEditor({ serializedEditorState }: { serializedEditorState: string 
   };
 
   return (
-    <div className='viewer'>
+    <>
       <LexicalComposer initialConfig={initialConfig}>
         <EditorHistoryContext>
           <Plugins />
         </EditorHistoryContext>
       </LexicalComposer>
-    </div>
+    </>
   );
 }
 
@@ -66,9 +66,7 @@ function Plugins() {
             <ContentEditable />
           </div>
         }
-        placeholder={
-          <div className='absolute top-[1.125rem] opacity-50 pointer-events-none'>Begin writing your post...</div>
-        }
+        placeholder={<div className='placeholder'>Enter some rich text...</div>}
         ErrorBoundary={LexicalErrorBoundary}
       />
       <MarkdownShortcutPlugin />
