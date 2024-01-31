@@ -13,15 +13,15 @@ import { ChangeModePlugin, CodeHighlightPlugin, HistoryPlugin, MarkdownShortcutP
 import { EditorHistoryContext } from './context';
 
 export default function Editor({ html, serializedEditorState }: { html: string; serializedEditorState: string }) {
-  const [isMount, setIsMount] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsMount(true);
+    setIsClient(true);
   }, []);
 
   return (
     <div className='viewer'>
-      {!isMount ? (
+      {!isClient ? (
         <>
           <button className='change'>convert to edit mode</button>
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
