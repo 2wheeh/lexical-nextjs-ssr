@@ -1,6 +1,6 @@
 {
   "name": "lexical-nextjs-ssr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,22 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lexical/code": "^0.13.1",
-    "@lexical/headless": "^0.13.1",
-    "@lexical/html": "^0.13.1",
-    "@lexical/link": "^0.13.1",
-    "@lexical/list": "^0.13.1",
-    "@lexical/react": "^0.13.1",
-    "@lexical/rich-text": "^0.13.1",
-    "@lexical/utils": "^0.13.1",
-    "@types/jsdom": "^21.1.6",
+    "@lexical/headless": "^0.14.5",
+    "@lexical/react": "^0.14.5",
     "jsdom": "^24.0.0",
-    "lexical": "^0.13.1",
+    "lexical": "^0.14.5",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/jsdom": "^21.1.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
