@@ -1,4 +1,6 @@
-import { $isLineBreakNode, type HTMLConfig } from 'lexical';
+import type { HTMLConfig } from 'lexical';
+
+import { $isLineBreakNode } from 'lexical';
 import { CodeNode } from '@lexical/code';
 import { addClassNamesToElement } from '@lexical/utils';
 

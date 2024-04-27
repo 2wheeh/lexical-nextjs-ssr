@@ -1,13 +1,13 @@
-import Editor from '@/editor';
-import { getHtml, getSerializedEditorState } from '@/lib';
+import { Editor } from '@/editor';
+import { getSerializedEditorState } from '@/lib';
 
 export default async function Home() {
-  const serializedEditorState = await getSerializedEditorState(); // fetch editorState from your remote repository
-  const html = await getHtml(serializedEditorState);
+  // get editorState from db
+  const serializedEditorState = await getSerializedEditorState();
 
   return (
     <div className='container mx-auto'>
-      <Editor html={html} serializedEditorState={serializedEditorState} />
+      <Editor serializedEditorState={serializedEditorState} />
     </div>
   );
 }

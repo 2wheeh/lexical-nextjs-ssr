@@ -1,12 +1,12 @@
-import { MarkdownShortcutPlugin as LexicalMarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
-import { TRANSFORMERS } from '@lexical/markdown';
-
-import { HistoryPlugin as LexicalHistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { useEditorHistoryContext } from '../context';
+import { useEffect, useState } from 'react';
 
 import { registerCodeHighlighting } from '@lexical/code';
+import { TRANSFORMERS } from '@lexical/markdown';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { useEffect, useState } from 'react';
+import { HistoryPlugin as LexicalHistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+import { MarkdownShortcutPlugin as LexicalMarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
+
+import { useEditorHistoryContext } from '@/editor/context';
 
 export function MarkdownShortcutPlugin() {
   return <LexicalMarkdownShortcutPlugin transformers={TRANSFORMERS} />;
@@ -44,4 +44,8 @@ export function ChangeModePlugin(): JSX.Element {
       {isEditable ? 'convert to read mode' : 'convert to edit mode'}
     </button>
   );
+}
+
+export function ChangeModePlugin_Skeleton() {
+  return <button className='change'>convert to edit mode</button>;
 }

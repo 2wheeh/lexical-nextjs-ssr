@@ -1,11 +1,12 @@
-import nodes from './nodes';
-import theme from './theme';
-import { htmlConfig } from './html-config';
 import { createHeadlessEditor as _createHeadlessEditor } from '@lexical/headless';
 
-const createHeadlessEditor = () => {
+import nodes from '@/editor/nodes';
+import theme from '@/editor/theme';
+import { htmlConfig } from '@/editor/html-config';
+
+const createHeadlessEditor = ({ namespace }: { namespace?: string }) => {
   return _createHeadlessEditor({
-    namespace: 'ssr-editor',
+    namespace,
     nodes: [...nodes],
     theme: theme,
     onError: () => {},
