@@ -42,13 +42,13 @@ export default function ClientSideEditor({ serializedEditorState }: { serialized
   };
 
   return (
-    <>
+    <div className='viewer'>
       <LexicalComposer initialConfig={initialConfig}>
         <EditorHistoryContext>
           <Plugins />
         </EditorHistoryContext>
       </LexicalComposer>
-    </>
+    </div>
   );
 }
 
