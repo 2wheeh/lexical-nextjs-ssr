@@ -36,11 +36,25 @@ function setupDom() {
   };
 }
 
+function setupWindow() {
+  const _window = global.window;
+  // need to setup window for CodeNode since facebook#5828
+  // https://github.com/facebook/lexical/pull/5828
+  // @ts-expect-error
+  global.window = global;
+
+  return () => {
+    global.window = _window;
+  };
+}
+
 export async function getHtml(serializedEditorState: string) {
   const html: string = await new Promise(resolve => {
+    const cleanup = setupWindow();
     const editor = createHeadlessEditor({ namespace: 'html-renderer' });
 
     editor.setEditorState(editor.parseEditorState(serializedEditorState));
+    cleanup();
 
     editor.update(() => {
       try {

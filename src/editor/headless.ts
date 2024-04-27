@@ -9,7 +9,9 @@ const createHeadlessEditor = ({ namespace }: { namespace?: string }) => {
     namespace,
     nodes: [...nodes],
     theme: theme,
-    onError: () => {},
+    onError: e => {
+      console.error(e);
+    },
     html: htmlConfig,
   });
 };
