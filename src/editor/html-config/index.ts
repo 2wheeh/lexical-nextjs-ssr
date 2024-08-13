@@ -3,6 +3,7 @@ import type { HTMLConfig } from 'lexical';
 import { $isLineBreakNode } from 'lexical';
 import { CodeNode } from '@lexical/code';
 
+// referenced an internal function updateCodeGutter in @lexical/code
 const generateGutter = (codeNode: CodeNode) => {
   const children = codeNode.getChildren();
 
@@ -18,8 +19,6 @@ const generateGutter = (codeNode: CodeNode) => {
 };
 
 // https://github.com/facebook/lexical/releases/tag/v0.12.3
-// referenced an internal function updateCodeGutter in @lexical/code
-// to keep 'data-gutter' on exported html.
 export const htmlConfig: HTMLConfig = {
   export: new Map([
     [
