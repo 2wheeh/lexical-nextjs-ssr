@@ -2,7 +2,20 @@ import type { HTMLConfig } from 'lexical';
 
 import { $isLineBreakNode } from 'lexical';
 import { CodeNode } from '@lexical/code';
-import { addClassNamesToElement } from '@lexical/utils';
+
+const generateGutter = (codeNode: CodeNode) => {
+  const children = codeNode.getChildren();
+
+  let gutter = '1';
+  let count = 1;
+  for (let i = 0; i < children.length; i++) {
+    if ($isLineBreakNode(children[i])) {
+      gutter += '\n' + ++count;
+    }
+  }
+
+  return gutter;
+};
 
 // https://github.com/facebook/lexical/releases/tag/v0.12.3
 // referenced an internal function updateCodeGutter in @lexical/code
@@ -15,27 +28,12 @@ export const htmlConfig: HTMLConfig = {
         // TODO: remove assertion to CodeNode after lexical fixes the type for parameter
         // https://github.com/facebook/lexical/pull/5507
         const codeNode = node as CodeNode;
-        const element = document.createElement('pre');
-        addClassNamesToElement(element, editor._config.theme.code);
-        element.setAttribute('spellcheck', 'false');
-        const language = codeNode.getLanguage();
 
-        if (language) {
-          element.setAttribute('data-highlight-language', language);
-        }
+        const element = codeNode.createDOM(editor._config);
 
-        const children = codeNode.getChildren();
-        const childrenLength = children.length;
-
-        let gutter = '1';
-        let count = 1;
-        for (let i = 0; i < childrenLength; i++) {
-          if ($isLineBreakNode(children[i])) {
-            gutter += '\n' + ++count;
-          }
-        }
-
+        const gutter = generateGutter(codeNode);
         element.setAttribute('data-gutter', gutter);
+
         return { element };
       },
     ],
