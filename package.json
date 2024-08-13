@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lexical/headless": "^0.14.5",
-    "@lexical/react": "^0.14.5",
+    "@lexical/headless": "^0.17.0",
+    "@lexical/react": "^0.17.0",
     "jsdom": "^24.0.0",
-    "lexical": "^0.14.5",
-    "next": "14.1.0",
+    "lexical": "^0.17.0",
+    "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18"
   },
